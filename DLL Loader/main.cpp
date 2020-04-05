@@ -163,14 +163,14 @@ void randomizetitle()
 }
 
 void adminaccess()
+{
+    if (!IsAppRunningAsAdminMode())
     {
-        if (!IsAppRunningAsAdminMode())
-        {
-            std::cout << Color(4) << "[-] " << Color(7) << "Program NOT running as administrator!";
-            Sleep(5000);
-            exit(1);
-        }
+        std::cout << Color(4) << "[-] " << Color(7) << "Program NOT running as administrator!";
+        Sleep(5000);
+        exit(1);
     }
+}
 
 void checkupdate()
 {
@@ -313,10 +313,8 @@ int main()
 
 /*
 Salt Workflow:
-
 1) Get Harddrive Fingerprint and hash it
 2) Get The Serial Code And Hash It
 3) Take Hashed HWID and Hashed Key And Hash It
 4) Compare Hashed Key with Downloaded List
-
 */
