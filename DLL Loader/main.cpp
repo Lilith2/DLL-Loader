@@ -163,18 +163,14 @@ void randomizetitle()
 }
 
 void adminaccess()
-{
-    if (IsAppRunningAsAdminMode() == TRUE)
     {
-
+        if (!IsAppRunningAsAdminMode())
+        {
+            std::cout << Color(4) << "[-] " << Color(7) << "Program NOT running as administrator!";
+            Sleep(5000);
+            exit(1);
+        }
     }
-    else
-    {
-        std::cout << Color(4) << "[-] " << Color(7) << "Program NOT running as administrator!";
-        Sleep(5000);
-        exit(1);
-    }
-}
 
 void checkupdate()
 {
